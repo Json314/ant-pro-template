@@ -1,0 +1,87 @@
+/*
+* 修改antd的默认样式
+*/
+
+.ant-form-item-control {
+  overflow: hidden;
+}
+
+.ant-typography-ellipsis{
+  margin: 0 auto !important;
+}
+
+#root {
+
+  .ant-table.ant-table-middle,
+  .ant-btn,
+  .ant-pagination,
+  .ant-input,
+  .ant-input-number-input,
+  .ant-select,
+  .ant-select-item,
+  .ant-select-dropdown,
+  .ant-form-item .ant-form-item-explain,
+  .ant-tooltip-inner, {
+    font-size: 12px;
+  }
+
+  .ant-menu {
+    font-size: 13px;
+  }
+
+  .ant-form-item-label > label {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .ant-form-item-control-input-content>.ant-input:not(textarea) {
+    height: 32px;
+  }
+
+  .editable-form-item.ant-form-item-has-error {
+    display: inline-block;
+
+  }
+  .editable-form-item {
+    input {
+      height: 29px !important;
+    }
+    .ant-form-item-control,
+    .ant-input-number,
+    input{
+      border-radius: 4px !important;
+    }
+  }
+
+  .ant-page-header.has-breadcrumb {
+    padding-top: 16px;
+
+    .ant-page-header-heading {
+      display: none;
+    }
+  }
+
+  .status.ant-switch {
+    background-color: #ff4d4f;
+  }
+  .success.ant-switch.ant-switch-checked {
+    background-color: #67c23a;
+  }
+
+}
+
+.ant-dropdown-menu-item,
+.ant-select-item, {
+  font-size: 12px;
+}
+
+.ant-drawer-title {
+  font-size: 14px;
+}
+.ant-drawer-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.ant-drawer-close {
+  padding: 13px 20px;
+}

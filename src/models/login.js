@@ -10,11 +10,35 @@ const Model = {
   },
   effects: {
     *login({ payload }, { call, put }) {
-      const response = yield call(fakeAccountLogin, payload);
+      // const response = yield call(fakeAccountLogin, payload);
+      const response = yield call(async function () {
+        if (payload.type === 'account' && (payload.userName !== 'admin' || payload.password !== 'admin')) {
+          return {
+            status: 'error',
+            type: 'account',
+            currentAuthority: '',
+          };
+        }else if (payload.type === 'mobile' && (!payload.mobile || !payload.captcha)) {
+          return {
+            status: 'error',
+            type: 'mobile',
+            currentAuthority: '',
+          };
+        }
+        return {
+          status: 'ok',
+          type: 'account',
+          currentAuthority: 'admin',
+        };
+      });
+
       yield put({
         type: 'changeLoginStatus',
         payload: response,
       }); // Login successfully
+
+      // 手动添加 localStorage
+      localStorage.setItem('role', 'admin');
 
       if (response.status === 'ok') {
         const urlParams = new URL(window.location.href);
@@ -43,13 +67,18 @@ const Model = {
     logout() {
       const { redirect } = getPageQuery(); // Note: There may be security issues, please note
 
+      // 手动删除 localStorage
+      localStorage.removeItem('role', 'admin');
+
       if (window.location.pathname !== '/user/login' && !redirect) {
-        history.replace({
-          pathname: '/user/login',
-          search: stringify({
-            redirect: window.location.href,
-          }),
-        });
+        setTimeout(() => {
+          history.replace({
+            pathname: '/user/login',
+            search: stringify({
+              redirect: window.location.href,
+            }),
+          });
+        }, 100);
       }
     },
   },
