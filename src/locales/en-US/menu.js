@@ -1,0 +1,15 @@
+export default {
+  'menu.welcome': 'Welcome',
+  'menu.more-blocks': 'More Blocks',
+  'menu.home': 'Home',
+  'menu.admin': 'Admin',
+  'menu.admin.sub-page': 'Sub-Page',
+  'menu.login': 'Login',
+  'menu.register': 'Register',
+  'menu.register.result': 'Register Result',
+  'menu.exception.403': '403',
+  'menu.exception.404': '404',
+  'menu.exception.500': '500',
+  'menu.app': 'app manage',
+  'menu.app_form': 'app form',
+};
